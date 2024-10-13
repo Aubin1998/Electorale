@@ -14,7 +14,7 @@
           </div>
 
         </div>
-        <div class="btnlogin" @click="verify">
+        <div class="btnlogin" @click="show.showDashboardFunc">
           <h3>Se connécter</h3>
         </div>
         <h5>
@@ -29,7 +29,7 @@
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga quisquam enim, consectetur consequatur, nulla
             quae porro voluptatum.
           </h5>
-          <div class="btnInscrit" @click="verify">
+          <div class="btnInscrit" @click="show.showSingUpFunc">
             <h3>S'inscrire</h3>
           </div>
         </div>
@@ -39,48 +39,9 @@
 </template>
 
 <script setup>
-import "primeicons/primeicons.css";
-import { useShow } from "../stores/show";
-import { Service } from "@/plugins/service";
-import { useAuthentificationStore } from "../stores/authentification";
-import { ref } from "vue";
-import { Cookies } from "@/plugins/cookies";
+import { useShow } from '@/stores/show';
 
-// create some variable as ref
-const pseudo = ref("");
-const mdp = ref("");
-
-// instance my plugins
-const url = new URL();
-const service = new Service();
-const cookies = new Cookies();
-const authentification = useAuthentificationStore();
-
-function verify() {
-  // make form's data on an object
-  let requestData = {
-    pseudo: pseudo.value,
-    motDePasse: mdp.value,
-  };
-
-  console.log(requestData);
-
-  // check if form is OK
-  if (service.verifyFormIfOK(requestData)) {
-    cookies.delete("accessToken");
-    cookies.delete("idPersonne");
-    cookies.delete("status");
-    authentification.check(
-      service.stringTrim(pseudo.value),
-      service.stringTrim(mdp.value)
-    );
-  } else console.log("invalid form");
-}
-
-const show = useShow();
-
-// my plugins
-import { URL } from "@/plugins/url";
+const show = useShow()
 </script>
 
 <style scoped>

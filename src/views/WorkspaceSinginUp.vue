@@ -10,7 +10,7 @@
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga quisquam enim, consectetur consequatur, nulla
             quae porro voluptatum.
           </h5>
-          <div class="btnInscrit" @click="verify">
+          <div class="btnInscrit" @click="show.showLoginFunc"> 
             <h3>Se connecté</h3>
           </div>
         </div>
@@ -33,47 +33,19 @@
         <div class="btnlogin" @click="verify">
           <h3>S'inscrire</h3>
         </div>
-        
+
       </div>
-      
+
     </div>
   </div>
 </template>
 
 <script setup>
-import "primeicons/primeicons.css";
-import { useShow } from "../stores/show";
-import { Service } from "@/plugins/service";
-import { useAuthentificationStore } from "../stores/authentification";
-import { ref } from "vue";
+import { useShow } from '@/stores/show';
 
-const nom = ref("");
-const prenom = ref("");
-const email = ref("");
-const password = ref("");
+const show = useShow()
 
-// instance my plugins
 
-const service = new Service();
-const authentification = useAuthentificationStore();
-const show = useShow();
-
-function verify() {
-  // make form's data on an object
-  let requestData = {
-    nom: nom.value,
-    prenom: prenom.value,
-    email: email.value,
-    password: password.value,
-  };
-
-  console.log(requestData);
-
-  // check if form is OK
-  if (service.verifyFormIfOK(requestData)) {
-    authentification.enregistrer(requestData);
-  } else console.log("invalid form");
-}
 </script>
 
 <style scoped>
@@ -112,7 +84,7 @@ function verify() {
   width: 50%;
   height: 100%;
   background-color: #212631;
-  border-radius: 0px 10px 10px 0px ;
+  border-radius: 0px 10px 10px 0px;
   box-shadow: 0px 0px 5px #9d9ea041;
   padding: 5%;
   justify-content: center;
@@ -123,7 +95,7 @@ function verify() {
   width: 50%;
   height: 100%;
   background-color: #6261CC;
-  border-radius: 10px 0px 0px 10px ;
+  border-radius: 10px 0px 0px 10px;
   box-shadow: 0px 0px 5px #9d9ea041;
   padding: 5%;
   display: flex;
