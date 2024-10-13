@@ -5,6 +5,8 @@ export const useShow = defineStore('Show', () =>{
   const showLogin = ref(true )
   const showSingUp = ref(false)
   const showDashboard = ref(false)
+  const showDesc = ref(false)
+
 
 
 
@@ -24,10 +26,12 @@ export const useShow = defineStore('Show', () =>{
     showLogin.value = false
     showSingUp.value = false
     showDashboard.value = true
-
-    
   }
 
+  function showDescFunc(){
+    showDesc.value = !showDesc.value //!showDesc veut dire exécute le cas contraire , soit true soit false
+  
+  }
 
 
   return{
@@ -38,7 +42,10 @@ export const useShow = defineStore('Show', () =>{
     showSingUpFunc,
 
     showDashboard,
-    showDashboardFunc
+    showDashboardFunc,
+
+    showDesc,
+    showDescFunc
 
 
   }
