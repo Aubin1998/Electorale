@@ -7,10 +7,10 @@
         <h4 class="subtitle">Entrez votre compte</h4>
         <div class="inputForm">
           <div class="itemContainer">
-            <input type="text" placeholder="Votre email" class="input" v-model="pseudo" />
+            <input type="text" placeholder="Votre email" class="input" />
           </div>
           <div class="itemContainer">
-            <input type="text" placeholder="Votre Mot de passe" class="input" v-model="mdp" />
+            <input type="text" placeholder="Votre Mot de passe" class="input"  />
           </div>
 
         </div>

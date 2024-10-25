@@ -16,35 +16,53 @@
                 <div class="Mail show">
                     <i class="pi pi-envelope" style="font-size: 18px; color: white;"></i>
                     <h4 class="text">Mail</h4>
-
                 </div>
             </div>
+
             <div class="photo" @click="show.showDescFunc()">P</div> <!--Fonction atao agnaty click fa tsy variable-->
-            <div class="showProfil" v v-if="show.showDesc">
+            <div class="showProfil"  v-if="show.showDesc">
                 <div class="sectionItem">
-                    <h3 class="textSection">Compte</h3>
+                    <h4 class="textSection">Compte</h4>
                 </div>
 
+                <div class="container">
+                    <div class="imageProfil">
+
+                    </div>
+                    <div class="info">
+                        <h4>AJABQFJBFJQD Aubin</h4>
+                        <h5>rafanomezantsoalatsakaaubin@gmal.com</h5>
+                    </div>
+                </div>
+
+
                 <div class="items">
-                    <h3 class="item">Lorem</h3>
-                    <h3 class="item">Lorem</h3>
-                    <h3 class="item">Lorem</h3>
+                    <div class="option">
+                        <h5 class="item">Gérer le compte</h5>
+                        <i class="pi pi-user-edit" style="font-size: 16px; color: white;"></i>
+                    </div>
+
+                    <div class="sectionItem">
+                        <h4 class="textSection">Connexion</h4>
+                    </div>
+
+                    <div class="option">
+                        <h5 class="item">Déconnexion</h5>
+                        <i class="pi pi-sign-out" style="font-size: 14px; color: white;"></i>
+                    </div>
                 </div>
             </div>
         </div>
-
     </div>
 
-
 </template>
+
 
 <script setup>
 import "primeicons/primeicons.css"
 
 import { useShow } from "@/stores/show";
-
 const show = useShow(); //call Show in show.js
-
 
 </script>
 
@@ -91,27 +109,65 @@ const show = useShow(); //call Show in show.js
 
 .showProfil {
     position: absolute;
-    background-color: #434955;
+    background-color: #545C6B;
     color: rgb(221, 214, 214);
-    width: 190px;
+    width: 20%;
     top: 70px;
-    border-radius: 10%;
+    right: 12px;
+    border-radius: 5px;
     text-align: left;
+
 }
 
 .sectionItem {
     background-color: #72767e;
-    border-radius: 10px 10px 0px 0px;
-    padding: 5px;
+    border-radius: 5px 5px 0px 0px;
+    padding: 5px 20px;
 
+}
+
+.textSection {
+    font-weight: 700;
+}
+
+.container {
+    padding: 5px 5px;
+    display: flex;
+    overflow: hidden;
+    justify-content: space-around;
+}
+
+.imageProfil {
+    background-color: aqua;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+.info {
+    width: 70%;
+    overflow: hidden;
 }
 
 .item {
     color: #fff;
     padding: 4px 10px;
+    font-weight: 600;
 }
 
 .item:hover {
+    background-color: #97999e;
+}
+
+.option {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    padding: 0px 10px;
+    margin: 5px 0px;
+}
+
+.option:hover {
     background-color: #97999e;
 }
 

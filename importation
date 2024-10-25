@@ -1,0 +1,7 @@
+//pinia
+
+import { useShow } from "@/stores/show";
+const show = useShow(); //call Show in show.js
+
+//importation
+import WorkspaceSubSectionElections from "@/components/subsections/WorkspaceSubSectionElections.vue";
